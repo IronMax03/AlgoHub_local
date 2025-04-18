@@ -1,0 +1,64 @@
+repos:
+  # Ruff for Python linting and formatting
+- repo: local
+  hooks:
+  - id: ruff
+    name: ruff check --fix
+    entry: ruff check --fix
+    language: system
+    files: \.py$
+    types: [python]
+
+  - id: ruff-format
+    name: ruff format
+    entry: ruff format
+    language: system
+    files: \.py$
+    types: [python]
+
+          # Pre-commit hooks for file formatting and checking
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+      # File end of line and whitespace fixes
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
+    args: [--fix=lf]
+
+          # File format validation
+  - id: check-yaml
+  - id: check-json
+  - id: check-toml
+  - id: check-xml
+  - id: check-added-large-files
+
+          # Debug statement checks
+  - id: debug-statements
+
+          # Git checks
+  - id: check-merge-conflict
+
+          # Pretty-format JSON files
+- repo: https://github.com/pre-commit/mirrors-prettier
+  rev: v3.0.3
+  hooks:
+  - id: prettier
+    types_or: [json, markdown]
+    args: [--write]
+    additional_dependencies:
+    - prettier@3.0.3
+
+            # YAML formatting with prettier
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.11.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
+
+          # Detect secrets
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v1.5.0
+  hooks:
+  - id: detect-secrets
+    exclude: package-lock.json
