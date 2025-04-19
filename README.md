@@ -12,41 +12,64 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/AlgorithmsAcademy/AlgoHub)
 ![GitHub last commit](https://img.shields.io/github/last-commit/AlgorithmsAcademy/AlgoHub)
 
-This repo collects common algorithms & data structures that are useful for interviews — each with
+This repo collects common algorithms & data structures that are useful for interviews — each with:
 
 1. a **written and/or visual explanation**
 2. a **python implementation**
 3. **test cases**
+
+For detailed guidelines on how to contribute, please consult [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 ## Installation
 
 1. Install [uv](https://github.com/astral-sh/uv) - a fast Python package installer and resolver. See the [official documentation](https://github.com/astral-sh/uv#installation) for installation instructions.
 
 2. Clone the repository and setup the environment:
+
    ```bash
    git clone https://github.com/AlgorithmsAcademy/AlgoHub.git
-   cd AlgoHub
-   uv sync --all-extras
-   source .venv/bin/activate
-   pre-commit install
    ```
 
-## Contribution
+3. From the **git** repository synchronizes your Python environment by executing the following command:
+   ```bash
+   uv sync --all-extras
+   ```
 
-### Guidelines
+## 🐛 Bug Report
 
-- **Coding Standards:**
-  Follow clean and consistent coding practices. Use meaningful variable and function names.
+To report a bug, create a new issue with the **bug** tag. The severity of the bug should be included using the following emojis:
 
-- **Document Your Code:**
-  Ensure all functions have clear and concise comments/description.
+- 🔥 Blocker (can’t proceed)
+- 🛑 Major (big problem, workaround exists)
+- ⚠️ Minor (cosmetic or rare)
+- ❓ Not sure
 
-- **Test Your Changes:**
-  While we understand that fully testing this library may be challenging, ensure your code works as intended before submitting. Focus on edge cases and confirm that your changes integrate smoothly with existing functionality.
+The name of the issue should match the following template:
 
-- **Be Respectful**:
-  Engage in discussions respectfully and constructively.
+```
+[severity_emojis Bug] name_of_the_algorithm
+```
 
-- **Follow The File Structure Template**: Each Algorithm should have its own file in **scr** with: A README based on the template and the python file. Parallel to that you should create another file inside tests with a python file torun the tests and a YAML file to store the tests cases.
+The description of the issue should match the following template:
 
-### Bug Report
+```
+# 🐛 Bug Report
+## Bug Description
+<!-- A clear and concise description of what the bug is. -->
+
+## To Reproduce
+Steps to reproduce the behavior:
+<!-- Enumerate all the steps to reproduce the bug. -->
+
+## Expected behavior
+<!-- A clear and concise description of what you expected to happen. -->
+
+## Environment (please complete the following information):
+<!-- Fill the following -->
+- Python version:
+- Environment Version:
+
+## Other
+<!-- If the report needs any other detail add it in this section. -->
+
+```
