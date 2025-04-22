@@ -1,0 +1,20 @@
+name: Implement Algorithm
+description: Implement a new algorithm.
+title: <the name will be auto fill>   # This is a placeholder; will be replaced by GitHub Actionslabels: [enhancement]
+
+body:
+- type: input
+  id: algo_name
+  attributes:
+    label: Algo_Name
+    description: Replace the spaces with underscores and use lowercase characters.
+    placeholder: 'Example: bubble_sort, dijkstra'
+  validations:
+    required: true
+
+- type: checkboxes
+  id: milestone
+  attributes:
+    label: Options
+    options:
+    - label: Is a Milestone.
