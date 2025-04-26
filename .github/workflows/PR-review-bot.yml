@@ -24,8 +24,7 @@ jobs:
 
     - name: Run tests and save output
       id: test
-      run: |
-        pytest | tee result.loge
+      run: pytest | tee result.loge
 
     - name: Request changes if tests failed
       if: failure()  # Only runs if the test step fails
