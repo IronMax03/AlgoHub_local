@@ -1,0 +1,40 @@
+name: Pull Request Review Bot
+
+on: 
+  pull_request:
+    branch: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Repo In Docker 
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  # fallback if .python-version is missing
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pytest
+
+    - name: Run tests and save output
+      id: test
+      run: |
+        pytest | tee result.loge
+
+    - name: Request changes if tests failed
+      if: failure()  # Only runs if the test step fails
+      run: |
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.GH_BOT_PAT }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews \
+          -d '{
+            "body": "🚨 Your pull request failed the tests. Please fix them before we can merge.",
+            "event": "REQUEST_CHANGES"
+          }'
