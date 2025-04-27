@@ -73,6 +73,7 @@ jobs:
 
             const issueNumber = context.issue.number;
             const updatedTitle = `${severityIcon} [Bug]: ${rawTitle}`;
+            console.log(`🔧 Updating issue title to: ${newTitle}`);
 
             await github.rest.issues.update({
               ...context.repo,
