@@ -37,7 +37,9 @@ jobs:
             title: newTitle
           });
  
-
+jobs:
+  step:
+    runs-on: ubuntu-latest
     rename-bug-report-issues:
       - name: Extract severity and bug title from Markdown
         uses: actions/github-script@v7
