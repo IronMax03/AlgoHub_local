@@ -1,4 +1,4 @@
-name: Auto-fill Bug Title
+name: Issue Automatic Renaming
 
 on:
   issues:
@@ -8,9 +8,9 @@ permissions:
   issues: write
 
 jobs:
-  rename-new-algo-issue:
+  steps:
     runs-on: ubuntu-latest
-    steps:
+    rename-new-algo-issue:
     - name: Parse markdown and update title
       uses: actions/github-script@v7
       with:
@@ -38,9 +38,7 @@ jobs:
           });
  
 
-  rename-bug-report-issues:
-    runs-on: ubuntu-latest
-    steps:
+    rename-bug-report-issues:
       - name: Extract severity and bug title from Markdown
         uses: actions/github-script@v7
         with:
