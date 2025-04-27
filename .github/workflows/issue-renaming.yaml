@@ -8,7 +8,37 @@ permissions:
   issues: write
 
 jobs:
-  update-issue-title:
+  rename-new-algo-issue:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Parse markdown and update title
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueBody = context.payload.issue.body;
+          console.log("Issue Body:\n", issueBody);
+
+          // Match the content under the "### Algo_Name" section
+          const match = /### Algo_Name\s*\n+(.+?)(\n+###|\n*$)/s.exec(issueBody);
+          if (!match) {
+            console.log("🚫 Could not find algo name in Markdown.");
+            return;
+          }
+
+          const algoName = match[1].trim();
+          const issueNumber = context.issue.number;
+          const newTitle = `✨ Implement ${algoName}`;
+
+          console.log(`🔧 Updating issue title to: ${newTitle}`);
+
+          await github.rest.issues.update({
+            ...context.repo,
+            issue_number: issueNumber,
+            title: newTitle
+          });
+ 
+
+  rename-bug-report-issues:
     runs-on: ubuntu-latest
     steps:
       - name: Extract severity and bug title from Markdown
@@ -43,8 +73,6 @@ jobs:
 
             const issueNumber = context.issue.number;
             const updatedTitle = `${severityIcon} [Bug]: ${rawTitle}`;
-
-            console.log(`✅ Updating title to: ${updatedTitle}`);
 
             await github.rest.issues.update({
               ...context.repo,
