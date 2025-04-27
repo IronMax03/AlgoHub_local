@@ -123,3 +123,6 @@ def test_string_representation() -> None:
     assert "3" in rep
     assert "2" in rep
     assert "1" in rep
+
+
+    assert False
