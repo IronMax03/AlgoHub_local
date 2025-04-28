@@ -54,10 +54,12 @@ jobs:
             }
 
             const severityMap = {
-              "🔥 Blocker": "🔥",
-              "🛑 Major": "🛑",
-              "⚠️ Minor": "⚠️",
-              "❓ Not sure": "❓"
+              "🧮 Algorithm Implementation": "🧮",
+              "🛠 CI/Tooling Issue": "🛠",
+              "📘 Algorithm Documentation": "📘",
+              "🖋 General Documentation": "🖋",
+              "🧪 Test Failure or Adding Testcase": "🧪",
+              "❓ Other / Not Sure": "❓",
             };
             const severityIcon = severityMap[severity] || "❓";
 
@@ -68,7 +70,7 @@ jobs:
             }
 
             const issueNumber = context.issue.number;
-            const updatedTitle = `${severityIcon} [Bug]: ${rawTitle}`;
+            const updatedTitle = `$⚠️ - {severityIcon} [Bug]: ${rawTitle}`;
 
             console.log(`🔧 Updating issue title to: ${updatedTitle}`);
 

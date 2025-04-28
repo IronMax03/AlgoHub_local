@@ -8,10 +8,13 @@ body:
   attributes:
     label: Severity
     options:
-    - 🔥 Blocker
-    - 🛑 Major
-    - ⚠️ Minor
-    - ❓ Not sure
+    - 🧮 Algorithm Implementation 
+    - 🛠 CI/Tooling Issue 
+    - 📘 Algorithm Documentation 
+    - 🖋 General Documentation
+    - 🧪 Test Failure or Adding Testcase 
+    - ❓ Other / Not Sure 
+
     default: 0
   validations:
     required: true
