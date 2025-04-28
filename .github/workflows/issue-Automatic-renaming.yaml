@@ -2,7 +2,7 @@ name: Issue Automatic Renaming
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited]
 
 permissions:
   issues: write
