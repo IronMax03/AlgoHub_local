@@ -39,21 +39,21 @@ jobs:
 
       - name: Rename for Bug Report Issues
         uses: actions/github-script@v7
-        if: contains(github.event.issue.body, '### Severity')
+        if: contains(github.event.issue.body, '### Type')
         with:
           script: |
             const body = context.payload.issue.body;
             console.log("Issue Body:\n", body);
 
-            const severityMatch = /### Severity\s+(.+?)\s*(###|$)/s.exec(body);
-            const severity = severityMatch ? severityMatch[1].trim() : null;
+            const typeMatch = /### Type\s+(.+?)\s*(###|$)/s.exec(body);
+            const Type = typeMatch ? typeMatch[1].trim() : null;
 
-            if (!severity) {
-              console.log("🚫 Could not find severity in Markdown.");
+            if (!Type) {
+              console.log("🚫 Could not find Type in Markdown.");
               return;
             }
 
-            const severityMap = {
+            const typeMap = {
               "🧮 Algorithm Implementation": "🧮",
               "🛠 CI/Tooling Issue": "🛠",
               "📘 Algorithm Documentation": "📘",
@@ -61,7 +61,7 @@ jobs:
               "🧪 Test Failure or Adding Testcase": "🧪",
               "❓ Other / Not Sure": "❓",
             };
-            const severityIcon = severityMap[severity] || "❓";
+            const typeIcon = typeMap[Type] || "❓";
 
             const rawTitle = context.payload.issue.title;
             if (rawTitle.startsWith("🔥") || rawTitle.startsWith("🛑") || rawTitle.startsWith("⚠️") || rawTitle.startsWith("❓")) {
@@ -70,7 +70,7 @@ jobs:
             }
 
             const issueNumber = context.issue.number;
-            const updatedTitle = `⚠️ - ${severityIcon} [Bug]: ${rawTitle}`;
+            const updatedTitle = `⚠️ - ${typeIcon} [Bug]: ${rawTitle}`;
 
             console.log(`🔧 Updating issue title to: ${updatedTitle}`);
 
