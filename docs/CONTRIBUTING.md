@@ -62,7 +62,7 @@ The form is straightforward, but if you’d like a bit more guidance, follow the
 - 🧮 Algorithm Implementation - The logic or output of an algorithm is incorrect.
 - 🛠 CI/Tooling Issue -  Problems with continuous integration or scripts.
 - 📘 Algorithm Documentation - Missing or incorrect explanations/comments for an algorithm.
-- 🖋 General Documentation - Typos, formatting, or missing information not specific to one algorithm.
+- 🖋 General Documentation - Typos, formatting, or missing information inside documentation that is not related to an algorithm.
 - 🧪 Test Failure or Adding Testcase - Broken tests or missing edge case coverage.
 - ❓ Other / Not Sure - You’re unsure how bad it is or some other kind of issue.
 
