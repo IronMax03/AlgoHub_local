@@ -113,7 +113,7 @@ def test_string_representation() -> None:
     rep = str(stack)
     assert "empty" in rep.lower() or "[]" in rep
 
-    # Stack with items
+    # Stack with itemsdd
     stack.push(1)
     stack.push(2)
     stack.push(3)
