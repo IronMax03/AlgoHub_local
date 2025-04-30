@@ -2,7 +2,7 @@ name: Code Tester
 
 on: 
   pull_request:
-    branch: [ master ]
+    branches: [ master ]
 
 jobs:
   test:
@@ -21,4 +21,4 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run tests
-      run: pytest test --collect-only
+      run: pytest tests --collect-only
