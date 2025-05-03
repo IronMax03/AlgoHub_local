@@ -15,7 +15,7 @@ We welcome all kinds of contributions—whether you're fixing bugs, improving do
 
 ## How to contribut
 
-Every change in the repository should be merged throught [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). All commit execute [Ruff](https://docs.astral.sh/ruff/) to insure the some level of coding standart.
+Every change in the repository should be merged through [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). All commit execute [Ruff](https://docs.astral.sh/ruff/) to insure some level of coding standard.
 
 ### Before Contributing
 
@@ -34,13 +34,13 @@ Before making the first commit of the session, you should set up the **pre-commi
 
 ### Implementing a new algorithm
 
-Before implementing a new algorithm. The Python virtual environment should include [rich](https://pypi.org/project/rich/) and [pytest](https://pypi.org/project/pytest/). In order to do it, run the commend below.
+Before implementing a new algorithm. The Python virtual environment should include [rich](https://pypi.org/project/rich/) and [pytest](https://pypi.org/project/pytest/). From the cloned repository run the command below for a quick installation.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Every algorithm implementation should have a dedicated **issue**. This issue should be build with the **Implement Algorithm** issue form. If no issue exist for the specific algorithm to be implemented create one. Every file inside the new repository and the **test file** should follow the file structure inside [File Structure](#📁-file-structure) section.
+Every algorithm implementation should have a dedicated **issue**. This issue should be built with the **Implement Algorithm** issue form. If no issue exists for the specific algorithm to be implemented create one. Every file inside the new repository and the **test file** should follow the file structure inside [File Structure](#📁-file-structure) section.
 
 All algorithm should be accompanied with a **README.md** file. This file should follow the template in the [Algorithm README.md](#algorithm-readme) section.
 
@@ -59,8 +59,9 @@ The form is straightforward, but if you’d like a bit more guidance, follow the
    > Example: `Crash when clicking the login button`
 
 2. **What type of issue is this? (Bug Type)**
+
 - 🧮 Algorithm Implementation - The logic or output of an algorithm is incorrect.
-- 🛠 CI/Tooling Issue -  Problems with continuous integration or scripts.
+- 🛠 CI/Tooling Issue - Problems with continuous integration or scripts.
 - 📘 Algorithm Documentation - Missing or incorrect explanations/comments for an algorithm.
 - 🖋 General Documentation - Typos, formatting, or missing information inside documentation that is not related to an algorithm.
 - 🧪 Test Failure or Adding Testcase - Broken tests or missing edge case coverage.
@@ -105,8 +106,7 @@ AlgoHub/
 │   └── algorithm_type
 │       └── your_algorithm/
 │           ├── test_new_algorithm.py
-│           ├── __init__.py
-│           └── test_cases.yaml       # Test cases
+│           └── __init__.py
 
 ```
 
