@@ -7,21 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download Repo In Docker
-      uses: actions/checkout@v3
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
       with:
-        fetch-depth: 0
+        enable-cache: true
+        cache-dependency-glob: uv.lock
+
+    - name: Install the project
+      run: uv sync --locked --all-extras --dev
 
     - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.12'
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      uses: actions/setup-python@v5
 
     - name: Run tests
-      run: pytest tests --collect-only
+      run: pytest tests --quiet --collect-only
 
     - name: Style Check
       run: ruff check
