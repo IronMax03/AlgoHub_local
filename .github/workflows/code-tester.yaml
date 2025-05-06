@@ -22,5 +22,5 @@ jobs:
     - name: Run tests
       run: pytest tests --quiet --collect-only
 
-    - name: Style Check
+    - name: Style Checkdf
       run: ruff check
