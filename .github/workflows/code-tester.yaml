@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+
     - name: Download Repo In Docker
       uses: actions/checkout@v4
 
@@ -18,9 +21,6 @@ jobs:
 
     - name: Install the project
       run: uv sync --locked --all-extras --dev
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
 
     - name: Run tests
       run: pytest tests --quiet --collect-only
