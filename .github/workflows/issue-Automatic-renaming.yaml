@@ -40,7 +40,7 @@ jobs:
           await github.rest.issues.update({
             ...context.repo,
             issue_number: issueNumber,
-            title: newTitle
+            title: newTitle,
             body: `📝 Algorithm has been formatted for consistency as \`${formattedAlgoName}\`. Please use this format in your implementation file names.`
           });
 
