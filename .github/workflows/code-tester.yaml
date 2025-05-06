@@ -23,7 +23,9 @@ jobs:
       run: uv sync --locked --all-extras --dev
 
     - name: Run tests
-      run: pytest tests --quiet --collect-only
+      run: |
+        pip install pytest
+        pytest tests --quiet --collect-only
 
     - name: Style Check
       run: ruff check
