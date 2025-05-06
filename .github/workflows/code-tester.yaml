@@ -27,5 +27,5 @@ jobs:
         pip install pytest
         pytest tests --quiet --collect-only
 
-    - name: Style Check
+    - name: Style Checkdf
       run: ruff check
